@@ -3,12 +3,11 @@ var app = angular.module("starredRepos");
 app.factory("starredReposService", ["$http", function($http) {
   var starredReposServiceData = {
     data: {
-      username: "rr",
       gitdata: []
     },
-    getData: function() {
+    getData: function(uname) {
       return $http.get("https://api.github.com/users/" +
-          starredReposServiceData.data.username + "/starred")
+          uname + "/starred")
         .success(function(data) {
           starredReposServiceData.data.gitdata = data;
         });

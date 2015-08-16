@@ -7,9 +7,7 @@ app.directive("searchBox", [function($scope) {
     controller: ["$scope", "starredReposService", function($scope,
       starredReposService) {
       $scope.onClickButton = function() {
-        starredReposService.data.username = $scope.username;
-        $scope.reposServiceData = starredReposService.data;
-        starredReposService.getData();
+        starredReposService.getData($scope.username);
       }
     }]
   };
